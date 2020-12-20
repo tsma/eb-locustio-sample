@@ -1,4 +1,4 @@
-# AWS Elastic Beanstalk Load Generator Example
+# AWS Elastic Beanstalk Load Generator Example (Supports locust version 0.13.5 with aws elastic beanstalk)
 This sample application uses the [Locust](http://locust.io/) open source load testing tool to create a simple load generator for your applications. The sample test definition *[locustfile.py](locustfile.py)* tests the root of an endpoint passed in as an environment variable *(TARGET_URL)*. For more information on the format of the test definition file, see [Writing a locustfile](http://docs.locust.io/en/latest/writing-a-locustfile.html).
 
 You can get started using the following steps:
@@ -26,3 +26,10 @@ You can get started using the following steps:
   8. When you are done with your tests, run `eb terminate --all` to clean up.
 
 *Note: Running Locust in distributed mode requires a master/slave architecture. This sample requires that the auto scaling minimum and maximum be set to the same value to ensure that the master isn't terminated by auto scaling. If for some reason the master instance is replaced, an `eb deploy` should be all it takes to fix it.*
+** If you want to run without the master/slave config, modify the Procfile and remove the "--master" from the locust-master command.
+
+Important Reference Links:
+Locust Source git: https://github.com/locustio/locust
+Locust v 0.13.5 docs: https://docs.locust.io/en/0.13.5/
+AWS Docs for Locust on Beanstalk: https://aws.amazon.com/blogs/devops/using-locust-on-aws-elastic-beanstalk-for-distributed-load-generation-and-testing/
+
